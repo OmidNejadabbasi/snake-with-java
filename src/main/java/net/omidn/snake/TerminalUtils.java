@@ -44,7 +44,6 @@ public class TerminalUtils {
     /**
      * Reads a raw key input from the input but does not block the program. If there is no character present, it returns -2.
      *
-     * @return
      */
     public static char readKey() {
         char c = '\0';
