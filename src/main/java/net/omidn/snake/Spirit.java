@@ -12,6 +12,10 @@ public abstract class Spirit {
 
     protected List<Point> points;
     /**
+     * This ID is used to identify the Spirit Objects.
+     */
+    private UUID objID;
+    /**
      * This method will be called by main loop of the game on every step. So you must do whatever is needed.
      */
     public abstract void update();
@@ -32,4 +36,16 @@ public abstract class Spirit {
         return points;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Spirit spirit = (Spirit) o;
+        return objID.equals(spirit.objID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(objID);
+    }
 }
