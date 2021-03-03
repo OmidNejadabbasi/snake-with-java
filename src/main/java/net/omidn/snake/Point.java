@@ -26,5 +26,8 @@ public class Point {
         this.color = color;
     }
 
-
+    @Override
+    public String toString() {
+        return color.code() + character + "\033[0m";
+    }
 }
