@@ -39,4 +39,15 @@ public class MainFrame {
             raster[i][0] = raster[i][width + 1] = "│";
         }
     }
+
+
+    public void addSpirit(Spirit s) {
+        spiritList.add(s);
+    }
+
+    public void killSpirit(Spirit s) {
+        spiritList.remove(s);
+    }
+
+
 }
