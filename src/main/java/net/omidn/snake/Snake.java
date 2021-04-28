@@ -64,23 +64,25 @@ public class Snake extends Spirit{
      * Tries to change the direction of the snake.
      * @param newDir 0 -> up, 1 -> right, 2 -> down, 3 -> left
      */
-    public void queryChangeDirection(int newDir) {
+    public boolean queryChangeDirection(int newDir) {
         if (pendingDirChange)
-            return;
+            return false;
         newDir %= 4;
 
         if (direction == 1|| direction == 3){
             if (newDir == 0 || newDir == 2){
                 pendingDirChange = true;
                 direction = newDir;
+                return true;
             }
         }else if (direction == 2|| direction == 0){
             if (newDir == 1 || newDir == 3){
                 pendingDirChange = true;
                 direction = newDir;
+                return true;
             }
         }
-
+        return false;
     }
 
 }

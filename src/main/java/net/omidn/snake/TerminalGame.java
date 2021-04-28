@@ -17,7 +17,7 @@ public class TerminalGame
     public static boolean running = true;
 
 
-    public static int frameRate = 80;
+    public static int frameRate = 100;
 
     public static void main( String[] args ) throws InterruptedException {
 
@@ -56,20 +56,24 @@ public class TerminalGame
             switch (key){
                 case (int)'A':
                 case (int)'a':
-                    snake.queryChangeDirection(3);
+                    if(snake.queryChangeDirection(3))
+                        frameRate = 100;
                     break;
                 case (int)'S':
                 case (int)'s':
-                    snake.queryChangeDirection(2);
+                    if(snake.queryChangeDirection(2))
+                        frameRate = 180;
                     break;
 
                 case (int)'D':
                 case (int)'d':
-                    snake.queryChangeDirection(1);
+                    if (snake.queryChangeDirection(1))
+                        frameRate = 100;
                     break;
                 case (int)'W':
                 case (int)'w':
-                    snake.queryChangeDirection(0);
+                    if(snake.queryChangeDirection(0))
+                        frameRate = 180;
                     break;
             }
         });
