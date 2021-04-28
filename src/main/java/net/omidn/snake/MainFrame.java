@@ -41,6 +41,23 @@ public class MainFrame {
     }
 
 
+    /**
+     * This method will be called on every step of the game loop.
+     */
+    public void update() {
+        spiritList.forEach(Spirit::update);
+        // Updating the raster:
+        resetRaster();
+        spiritList.forEach(spirit -> {
+            spirit.getPoints().forEach(point -> {
+                try {
+                    raster[point.y + 1][point.x + 1] = point.toString();
+                }catch (Exception e){}
+            });
+        });
+
+    }
+
     public void addSpirit(Spirit s) {
         spiritList.add(s);
     }
