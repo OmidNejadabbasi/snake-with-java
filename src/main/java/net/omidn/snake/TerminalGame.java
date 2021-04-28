@@ -44,5 +44,16 @@ public class TerminalGame
         Snake snake = new Snake(60, 22);
         mainFrame.addSpirit(snake);
 
+        addActionHandler(key -> {
+            if(key == 3){
+                running = false;
+            }
+        });
+
     }
+
+    public static void addActionHandler(Consumer<Integer> actionHandler) {
+        actionHandlers.add(actionHandler);
+    }
+
 }
