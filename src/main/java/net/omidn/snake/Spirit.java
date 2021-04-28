@@ -10,25 +10,37 @@ import java.util.UUID;
  */
 public abstract class Spirit {
 
+    /**
+     * The width of the frame in which this spirit is going to be.
+     */
+    private int frameWidth;
+    /**
+     * The height of the frame in which this spirit is going to be.
+     */
+    private int frameHeight;
+
     protected List<Point> points;
     /**
      * This ID is used to identify the Spirit Objects.
      */
     private UUID objID;
+
     /**
      * This method will be called by main loop of the game on every step. So you must do whatever is needed.
      */
     public abstract void update();
 
-    public Spirit(){
+    public Spirit(int frameWidth, int frameHeight) {
+        this.frameWidth = frameWidth;
+        this.frameHeight = frameHeight;
         points = new ArrayList<>();
     }
 
-    public void addPoint(Point point){
+    public void addPoint(Point point) {
         points.add(point);
     }
 
-    public void removePoint(Point point){
+    public void removePoint(Point point) {
         points.add(point);
     }
 
