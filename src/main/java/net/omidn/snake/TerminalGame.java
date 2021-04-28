@@ -50,6 +50,30 @@ public class TerminalGame
             }
         });
 
+        addActionHandler(key ->{
+            switch (key){
+                case (int)'A':
+                case (int)'a':
+                    snake.queryChangeDirection(3);
+                    break;
+                case (int)'S':
+                case (int)'s':
+                    snake.queryChangeDirection(2);
+                    break;
+
+                case (int)'D':
+                case (int)'d':
+                    snake.queryChangeDirection(1);
+                    break;
+                case (int)'W':
+                case (int)'w':
+                    snake.queryChangeDirection(0);
+                    break;
+            }
+        });
+
+
+
     }
 
     public static void addActionHandler(Consumer<Integer> actionHandler) {

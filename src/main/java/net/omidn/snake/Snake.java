@@ -57,6 +57,7 @@ public class Snake extends Spirit{
 
         points.remove(length);
         tail = points.get(length - 1);
+        pendingDirChange = false;
     }
 
     /**
