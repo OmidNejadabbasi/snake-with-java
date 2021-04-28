@@ -67,4 +67,17 @@ public class MainFrame {
     }
 
 
+
+    public String printable(){
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < raster.length; i++) {
+            for (int j = 0; j < raster[0].length; j++) {
+                sb.append(raster[i][j]);
+            }
+            sb.append('\n');
+        }
+        return sb.toString();
+    }
+
+
 }
