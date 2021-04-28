@@ -31,6 +31,31 @@ public class Snake extends Spirit{
 
     @Override
     public void update() {
+        int headX = head.x, headY = head.y;
 
+        switch (direction) {
+            case 0:
+                head.y = (head.y - 1 + frameHeight) % frameHeight;
+                break;
+
+            case 1:
+                head.x = (head.x + 1 + frameWidth) % frameWidth;
+                break;
+
+            case 2:
+                head.y = (head.y + 1 + frameHeight) % frameHeight;
+                break;
+
+            case 3:
+                head.x = (head.x - 1 + frameWidth) % frameWidth;
+                break;
+        }
+
+        points.add(1, tail);
+        tail.x = headX;
+        tail.y = headY;
+
+        points.remove(length);
+        tail = points.get(length - 1);
     }
 }

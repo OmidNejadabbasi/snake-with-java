@@ -13,11 +13,11 @@ public abstract class Spirit {
     /**
      * The width of the frame in which this spirit is going to be.
      */
-    private int frameWidth;
+    protected int frameWidth;
     /**
      * The height of the frame in which this spirit is going to be.
      */
-    private int frameHeight;
+    protected int frameHeight;
 
     protected List<Point> points;
     /**
