@@ -16,6 +16,7 @@ public class Snake extends Spirit{
      */
     public int direction = 1;
     private boolean pendingDirChange = false;
+    private boolean growPending = false;
     private int length = 4;
 
     private static final char CHAR = '0';
@@ -58,6 +59,7 @@ public class Snake extends Spirit{
         points.remove(length);
         tail = points.get(length - 1);
         pendingDirChange = false;
+        // TODO grow
     }
 
     /**
@@ -83,6 +85,12 @@ public class Snake extends Spirit{
             }
         }
         return false;
+    }
+
+    public void collision (Bait bait ){
+        if (head.equals(bait.getPoint())) {
+            growPending = true;
+        }
     }
 
 }
