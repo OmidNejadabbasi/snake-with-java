@@ -16,8 +16,7 @@ public class TerminalGame
      */
     public static boolean running = true;
 
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) throws InterruptedException {
 
         new Thread(() -> {
             try {
@@ -73,6 +72,13 @@ public class TerminalGame
         });
 
 
+        running = true;
+        while (running) {
+            Thread.sleep(80);
+            TerminalUtils.clearFromCellToEndOfScreen(3, 0);
+            System.out.print(mainFrame.printable());
+            mainFrame.update();
+        }
 
     }
 
