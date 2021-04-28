@@ -11,6 +11,13 @@ public class Snake extends Spirit{
      */
     public Point tail;
 
+    /**
+     * The direction of the snake
+     */
+    public int direction = 1;
+    private boolean pendingDirChange = false;
+    private int length = 4;
+
     private static final char CHAR = '0';
     private Color color = Color.CYAN;
 
