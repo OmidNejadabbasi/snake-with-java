@@ -16,12 +16,15 @@ public class TerminalGame
      */
     public static boolean running = true;
 
+
+    public static int frameRate = 80;
+
     public static void main( String[] args ) throws InterruptedException {
 
         new Thread(() -> {
             try {
                 while (running) {
-                    Thread.sleep(80);
+                    Thread.sleep(frameRate);
                     int a = RawConsoleInput.read(false);
                     actionHandlers.forEach(func -> func.accept(a));
                 }
@@ -74,7 +77,7 @@ public class TerminalGame
 
         running = true;
         while (running) {
-            Thread.sleep(80);
+            Thread.sleep(frameRate);
             TerminalUtils.clearFromCellToEndOfScreen(3, 0);
             System.out.print(mainFrame.printable());
             mainFrame.update();
