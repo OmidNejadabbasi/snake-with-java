@@ -40,9 +40,13 @@ public class TerminalGame {
         System.out.println("Press P to pause and resume.");
 
 
-        MainFrame mainFrame = new MainFrame(60, 22);
-        Snake snake = new Snake(60, 22);
+        int screenWidth = 60;
+        int screenHeight = 22;
+        MainFrame mainFrame = new MainFrame(screenWidth, screenHeight);
+        Snake snake = new Snake(screenWidth, screenHeight);
+        Bait bait = new Bait(screenWidth, screenHeight);
         mainFrame.addSpirit(snake);
+        mainFrame.addSpirit(bait);
 
         addActionHandler(key -> {
             if (key == 3) {
@@ -79,6 +83,7 @@ public class TerminalGame {
 
         running = true;
         while (running) {
+            snake.collision(bait);
             Thread.sleep(frameRate);
             TerminalUtils.clearFromCellToEndOfScreen(3, 0);
             System.out.print(mainFrame.printable());

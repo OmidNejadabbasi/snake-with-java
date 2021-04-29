@@ -1,6 +1,6 @@
 package net.omidn.snake;
 
-public class Snake extends Spirit{
+public class Snake extends Spirit {
 
     /**
      * The Point object of the head
@@ -52,14 +52,15 @@ public class Snake extends Spirit{
                 break;
         }
 
-        points.add(1, tail);
-        tail.x = headX;
-        tail.y = headY;
+        Point newP = new Point(headX, headY, CHAR, color);
+        points.add(1, newP);
 
-        points.remove(length);
+
+        if (!growPending)
+            points.remove(length);
         tail = points.get(length - 1);
         pendingDirChange = false;
-        // TODO grow
+        growPending = false;
     }
 
     /**
@@ -71,14 +72,14 @@ public class Snake extends Spirit{
             return false;
         newDir %= 4;
 
-        if (direction == 1|| direction == 3){
-            if (newDir == 0 || newDir == 2){
+        if (direction == 1 || direction == 3) {
+            if (newDir == 0 || newDir == 2) {
                 pendingDirChange = true;
                 direction = newDir;
                 return true;
             }
-        }else if (direction == 2|| direction == 0){
-            if (newDir == 1 || newDir == 3){
+        } else if (direction == 2 || direction == 0) {
+            if (newDir == 1 || newDir == 3) {
                 pendingDirChange = true;
                 direction = newDir;
                 return true;
@@ -87,9 +88,12 @@ public class Snake extends Spirit{
         return false;
     }
 
-    public void collision (Bait bait ){
+    public void collision(Bait bait) {
         if (head.equals(bait.getPoint())) {
+            if (!growPending)
+                length++;
             growPending = true;
+
         }
     }
 

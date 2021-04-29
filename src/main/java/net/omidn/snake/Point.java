@@ -45,4 +45,10 @@ public class Point {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+    @Override
+    public Point clone(){
+        return new Point(x, y, character, color);
+    }
+
 }
