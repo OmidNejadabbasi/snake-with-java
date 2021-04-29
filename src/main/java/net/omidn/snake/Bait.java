@@ -1,9 +1,13 @@
 package net.omidn.snake;
 
+import java.util.Random;
+
 public class Bait extends Spirit {
 
     private static Color color = Color.RED;
     private Point point;
+
+    private Random random = new Random();
 
     public Bait(int frameWidth, int frameHeight) {
         super(frameWidth, frameHeight);
@@ -17,5 +21,10 @@ public class Bait extends Spirit {
 
     public Point getPoint() {
         return point;
+    }
+
+    public void toNewPosition() {
+        point.x = random.nextInt(frameWidth);
+        point.y = random.nextInt(frameHeight);
     }
 }

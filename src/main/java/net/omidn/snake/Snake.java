@@ -90,10 +90,11 @@ public class Snake extends Spirit {
 
     public void collision(Bait bait) {
         if (head.equals(bait.getPoint())) {
-            if (!growPending)
+            if (!growPending) {
                 length++;
-            growPending = true;
-
+                growPending = true;
+                bait.toNewPosition();
+            }
         }
     }
 
